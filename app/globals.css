@@ -2,25 +2,85 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0f172a;
+  color-scheme: light;
+
+  /* Brand Colors - Sky */
+  --brand-primary: #0ea5e9;
+  --brand-primary-hover: #0284c7;
+  --brand-primary-subtle: #f0f9ff;
+  --brand-primary-foreground: #ffffff;
+
+  --brand-secondary: #f1f5f9;
+  --brand-secondary-hover: #e2e8f0;
+  --brand-secondary-foreground: #0f172a;
+
+  --radius-button: 0.75rem;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-hover: var(--brand-primary-hover);
+  --color-brand-primary-subtle: var(--brand-primary-subtle);
+  --color-brand-primary-foreground: var(--brand-primary-foreground);
+
+  --color-brand-secondary: var(--brand-secondary);
+  --color-brand-secondary-hover: var(--brand-secondary-hover);
+  --color-brand-secondary-foreground: var(--brand-secondary-foreground);
+
+  --radius-button: var(--radius-button);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Explicit class for dark mode to override system preferences */
+.dark {
+  color-scheme: dark;
+  --background: #020617;
+  --foreground: #f8fafc;
+
+  --brand-primary: #38bdf8;
+  --brand-primary-hover: #7dd3fc;
+  --brand-primary-subtle: #082f49;
+  --brand-primary-foreground: #ffffff;
+
+  --brand-secondary: #222e40;
+  --brand-secondary-hover: #334155;
+  --brand-secondary-foreground: #f8fafc;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.premium-shadow {
+  box-shadow: 0 10px 15px -3px rgba(14, 165, 233, 0.1), 0 4px 6px -4px rgba(14, 165, 233, 0.1);
+}
+
+.premium-gradient {
+  background: linear-gradient(135deg, var(--brand-primary) 0%, #3b82f6 100%);
+}
+
+/* Custom scrollbar for premium feel */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-secondary);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-secondary-hover);
 }
