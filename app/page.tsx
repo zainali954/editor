@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "@/components/Button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 
@@ -24,9 +25,11 @@ export default function Home() {
         </p>
 
         <div className="flex gap-6 items-center">
-          <Button variant="primary" size="lg">
-            Get Started
-          </Button>
+          <Link href="/editor">
+            <Button variant="primary" size="lg">
+              Open Editor
+            </Button>
+          </Link>
           <Button variant="secondary" size="lg">
             Learn More
           </Button>
